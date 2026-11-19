@@ -1,0 +1,151 @@
+{
+  "secrets_file": "secrets/credentials.json",
+  "network": {
+    "proxy": null
+  },
+  "env": {
+    "MALLOC_ARENA_MAX": "2",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/bridge.log",
+    "max_bytes": 10485760,
+    "backups": 5
+  },
+  "tg": {
+    "mode": "bot",
+    "group_id": 0,
+    "my_user_id": 0,
+    "bot_token_file": "secrets/tg_bot_token",
+    "service_topic_key": "__system__",
+    "service_topic_title": "MAX Bridge — система",
+    "service_topic_id": 0,
+    "caps": {
+      "download_bytes": 20971520,
+      "upload_bytes": 52428800
+    }
+  },
+  "max": {
+    "ws_url": "wss://api.oneme.ru/websocket",
+    "origin": "https://web.max.ru",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+    "locale": "ru",
+    "insecure": true,
+    "heartbeat_seconds": 30,
+    "heartbeat_interactive": true,
+    "token_file": "secrets/max_token",
+    "client_hello": {
+      "userAgent": {
+        "deviceType": "WEB",
+        "locale": "ru",
+        "osVersion": "Windows",
+        "deviceName": "bridge"
+      }
+    },
+    "limits": {
+      "media_size_bytes": null,
+      "edit_window_seconds": null,
+      "delete_window_seconds": null
+    },
+    "upload_urls": {
+      "image": "https://iu.oneme.ru/uploadImage",
+      "audio": "https://au.oneme.ru/uploadAudio",
+      "video": "https://omu.okcdn.ru/upload.do"
+    },
+    "prefixes": {
+      "heartbeat": "",
+      "client_hello": "f5 12",
+      "auth": "f1 ff ff de",
+      "get_chats": "",
+      "get_history": "f0 21",
+      "send": "f0 11",
+      "typing": "",
+      "delete": "f0 11",
+      "edit": "f2 0d",
+      "upload_url": "",
+      "upload_photo": "",
+      "upload_confirm": "f0 8e",
+      "login_qr_start": "",
+      "login_qr_poll": "f0 20",
+      "login_qr_confirm": "f0 20"
+    },
+    "flags": {
+      "heartbeat": "0x0000",
+      "client_hello": "0x0200",
+      "auth": "0x0200",
+      "get_chats": "0x0000",
+      "get_history": "0x0000",
+      "subscribe": "0x0000",
+      "sync": "0x0000",
+      "send": "0x0100",
+      "typing": "0x0000",
+      "delete": "0x0100",
+      "edit": "0x0100",
+      "upload_url": "0x0000",
+      "upload_photo": "0x0000",
+      "upload_confirm": "0x0100",
+      "login_qr_start": "0x0000",
+      "login_qr_poll": "0x0100",
+      "login_qr_confirm": "0x0100"
+    },
+    "opcodes": {
+      "heartbeat": "0x0001",
+      "client_hello": "0x0006",
+      "auth": "0x0013",
+      "logout": "0x0014",
+      "get_chats": "0x0030",
+      "get_history": "0x0031",
+      "subscribe": "0x004B",
+      "sync": "0x00D0",
+      "read": "0x0032",
+      "send": "0x0040",
+      "typing": "0x0041",
+      "delete": "0x0042",
+      "edit": "0x0043",
+      "upload_url": "0x0052",
+      "upload_photo": "0x0050",
+      "upload_confirm": "0x0053",
+      "incoming": "0x0080",
+      "peer_typing": "0x0081",
+      "reactions": "0x00B4",
+      "login_qr_start": "0x0120",
+      "login_qr_poll": "0x0121",
+      "login_qr_confirm": "0x0123",
+      "upload_file": "0x0057"
+    },
+    "upload_direct": false
+  },
+  "bridge": {
+    "my_id": 0,
+    "db_path": "state/state.sqlite3",
+    "on_remote_delete": "mark",
+    "subscribe_chats": [],
+    "chat_poll_seconds": 0,
+    "native_reply": true,
+    "whitelist": [],
+    "blacklist": [],
+    "throttle": {
+      "per_minute": 20,
+      "burst": 2
+    },
+    "backfill": {
+      "enabled": false,
+      "batch": 50
+    },
+    "dedup_ttl_days": 7,
+    "watchdog_no_frames_minutes": 10,
+    "qr_poll_seconds": 3,
+    "qr_max_rounds": 0,
+    "reconnect_max_seconds": 120,
+    "media": {
+      "temp_dir": "tmp_media",
+      "parallel": 2,
+      "ffmpeg_threads": 2
+    }
+  },
+  "debug": {
+    "log_decode_errors": false,
+    "dump_stacks_seconds": 0
+  }
+}

@@ -1,0 +1,14 @@
+# секреты и состояние
+secrets/*
+!secrets/credentials.example.json
+state/*
+!state/.gitkeep
+logs/*
+!logs/.gitkeep
+tmp_media/*
+__pycache__/
+*.pyc
+.venv/
+
+# HAR-файлы содержат сессию MAX — не публиковать
+*.har

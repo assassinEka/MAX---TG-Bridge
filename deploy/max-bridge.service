@@ -1,0 +1,30 @@
+[Unit]
+Description=MAX <-> Telegram bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=maxbridge
+Group=maxbridge
+WorkingDirectory=/opt/max-bridge
+Environment=MALLOC_ARENA_MAX=2
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/max-bridge/.venv/bin/python -u tools/console.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=25
+KillSignal=SIGTERM
+
+# Бюджет: ~150 МБ steady, пики до ~300 МБ.
+MemoryHigh=180M
+MemoryMax=300M
+MemorySwapMax=0
+OOMScoreAdjust=800
+LimitNOFILE=4096
+
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
